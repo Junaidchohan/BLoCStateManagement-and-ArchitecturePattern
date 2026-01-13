@@ -130,14 +130,3 @@ Serve as a reference for real projects
 Choose Cubit for simplicity and Bloc for structure.
 Both are powerful when used correctly.
 
-## Final instruction to you
-Commit with:
-git add .
-git commit -m "Add CounterCubit and CounterBloc examples to demonstrate Cubit vs Bloc state management"
-git push origin main
-
-This README is **portfolio-safe**.  
-If you want, next we can:
-- Add unit tests
-- Add architecture diagram
-- Convert this into a reusable template repo
