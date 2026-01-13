@@ -8,8 +8,6 @@ The purpose of this project is to clearly explain:
 - The **architectural difference** between them
 - When to use Cubit vs Bloc in real projects
 
----
-
 ## 📂 Project Structure
 
 lib/
@@ -23,15 +21,10 @@ lib/
 │ └── inc_dec_page.dart
 └── main.dart
 
-scss
-Copy code
-
----
-
 ## 🔹 CounterCubit (Function-based State Management)
 
 ### Implementation
-```dart
+```code
 class CounterCubit extends Cubit<int> {
   CounterCubit() : super(0);
 
@@ -44,22 +37,18 @@ class CounterCubit extends Cubit<int> {
     emit(state - 1);
   }
 }
+
+
 How Cubit Works
 UI directly calls a function
-
 That function emits a new state
-
 No events are involved
-
 emit() is accessible inside all Cubit methods
 
 Characteristics
 Minimal boilerplate
-
 Easy to read and maintain
-
 Ideal for simple to medium complexity logic
-
 Faster development
 
 🔹 CounterBloc (Event-driven State Management)
@@ -79,52 +68,36 @@ class CounterBloc extends Bloc<CounterEvent, int> {
   }
 }
 Event Definitions
-dart
-Copy code
 sealed class CounterEvent {}
 
 class CounterIncremented extends CounterEvent {}
 class CounterDecremented extends CounterEvent {}
 How Bloc Works
 UI dispatches an event
-
 Bloc listens to the event
-
 Business logic is handled inside event handlers
-
 State is emitted from the handler only
 
 Characteristics
 Strict separation of concerns
-
 Better for complex business logic
-
 Highly scalable
-
 More boilerplate than Cubit
 
 ⚠️ Important Architectural Difference
 Cubit
 State changes happen via method calls
-
 emit() is available inside all methods
-
 Bloc
 State changes happen via events
-
 emit() is only available inside event handlers
-
 UI cannot directly change state
 
 🔍 Internal Insight
 Both Cubit and Bloc extend BlocBase, meaning:
-
 They share the same core public API
-
 Both expose state and stream
-
 The difference is architectural, not technical
-
 Bloc is essentially Cubit with an additional event layer.
 
 📊 Cubit vs Bloc Comparison
@@ -137,48 +110,31 @@ Best for	Simple logic	Complex workflows
 
 ✅ When to Use Cubit
 Simple UI state
-
 Counters, toggles, form state
-
 Rapid development
-
 Fewer moving parts
 
 ✅ When to Use Bloc
 Complex business rules
-
 Multiple events affecting the same state
-
 Enterprise-level applications
-
 Strong architecture enforcement
 
 🚀 Purpose of This Repository
 Learn Flutter Bloc internals
-
 Compare Cubit and Bloc side by side
-
 Apply clean architecture principles
-
 Serve as a reference for real projects
 
 🧠 Final Thought
 Choose Cubit for simplicity and Bloc for structure.
 Both are powerful when used correctly.
 
-yaml
-Copy code
-
----
-
 ## Final instruction to you
 Commit with:
 git add .
 git commit -m "Add CounterCubit and CounterBloc examples to demonstrate Cubit vs Bloc state management"
 git push origin main
-
-markdown
-Copy code
 
 This README is **portfolio-safe**.  
 If you want, next we can:
